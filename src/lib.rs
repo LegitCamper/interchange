@@ -109,7 +109,7 @@
 //! ```
 
 use core::fmt::{self, Debug};
-use core::sync::atomic::Ordering;
+use portable_atomic::Ordering;
 
 #[cfg(loom)]
 use loom::{
@@ -118,10 +118,9 @@ use loom::{
 };
 
 #[cfg(not(loom))]
-use core::{
-    cell::UnsafeCell,
-    sync::atomic::{AtomicBool, AtomicU8, AtomicUsize},
-};
+use core::cell::UnsafeCell;
+#[cfg(not(loom))]
+use portable_atomic::{AtomicBool, AtomicU8, AtomicUsize};
 
 #[derive(Clone, Copy)]
 pub struct Error;

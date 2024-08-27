@@ -13,3 +13,6 @@ categories = ["development-tools", "embedded"]
 
 [target.'cfg(loom)'.dependencies]
 loom = "0.5"
+
+[dependencies]
+portable-atomic = "1.7.0"
