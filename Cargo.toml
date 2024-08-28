@@ -1,7 +1,7 @@
 [package]
 name = "interchange"
-version = "0.3.1"
-authors = ["The Trussed developers", "Nicolas Stalder <n@stalder.io>"]
+version = "0.2.2"
+authors = ["Nicolas Stalder <n@stalder.io>"]
 edition = "2018"
 description = "Request/response mechanism for embedded development, using atomics"
 repository = "https://github.com/trussed-dev/interchange"
@@ -11,8 +11,5 @@ documentation = "https://docs.rs/interchange"
 keywords = ["cortex-m", "nxp", "lpc"]
 categories = ["development-tools", "embedded"]
 
-[target.'cfg(loom)'.dependencies]
-loom = "0.5"
-
 [dependencies]
-portable-atomic = "1.7.0"
+portable-atomic = { version = "1.7.0", features = ["critical-section"] }
